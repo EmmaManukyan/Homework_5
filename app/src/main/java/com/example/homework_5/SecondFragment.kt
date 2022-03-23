@@ -1,5 +1,6 @@
 package com.example.homework_5
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,7 +20,16 @@ class SecondFragment:Fragment() {
         val args = this.arguments
         val text = args?.get("message")
         val myText = view.findViewById<TextView>(R.id.myText)
+        val btnNext = view.findViewById<TextView>(R.id.tv_next)
         myText.text = text.toString()
+        btnNext.setOnClickListener {
+            activity.let {
+                val intent = Intent(it, MainActivity2::class.java)
+                startActivity(intent)
+            }
+
+
+        }
         return view
     }
 }
